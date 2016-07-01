@@ -1,0 +1,18 @@
+---
+applications:
+  - name: runaway
+    command: bundle exec ruby runaway.rb
+    memory: 256M
+    no-route: true
+    health-check-type: none
+    instances: 5
+    services:
+    - my-rabbit
+  - name: fire
+    command: bundle exec ruby fire.rb
+    memory: 256M
+    no-route: true
+    health-check-type: none
+    instances: 5
+    services:
+    - my-rabbit
